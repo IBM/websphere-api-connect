@@ -15,9 +15,9 @@ This tutorial teaches you how to deploy your on-premises IBM WebSphere Liberty V
 This WebSphere API Connect example is based on this developerWorks [article](https://www.ibm.com/developerworks/library/mw-1609-demagalhaes-bluemix-trs/1609-demagalhaes.html).
 
 ## Steps
-1. [Push a WebSphere Liberty API Discovery server into Bluemix](#1-push-bluemix)
-2. [Create an API Connect service in Bluemix](#2-create-bluemix)
-3. [Pull WebSphere Liberty APIs from API Connect](#3-pull-connect)
+1. [Push a WebSphere Liberty API Discovery server into Bluemix](#1-push-a-websphere-liberty-api-discovery-server-into-bluemix)
+2. [Create an API Connect service in Bluemix](#2-create-an-api-connect-service-in-bluemix)
+3. [Pull WebSphere Liberty APIs from API Connect](#3-pull-websphere-liberty-apis-from-api-connect)
 
 [Troubleshooting](#troubleshooting)
 
