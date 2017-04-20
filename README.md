@@ -41,7 +41,7 @@ Replace `<app_name>` with an unique application name within your Bluemix region.
 cf push <app_name> -p defaultServer
 ```
 
-To reach the API Discovery user interface, go to **https://<app_name>.mybluemix.net/ibm/api/explorer**. Then, use the credentials from your server.xml to login(For this example, the **username** is `user` and the **password** is `demo`).
+To reach the API Discovery user interface, go to `https://<app_name>.mybluemix.net/ibm/api/explorer`. Then, use the credentials from your server.xml to login(For this example, the **username** is `user` and the **password** is `demo`).
 
 You should see something like this in your API Discovery user interface.
 
@@ -93,7 +93,7 @@ From the main API Connect dashboard in Bluemix, click the menu icon and select *
 
 In the **Import API from a file or URL** window, click **Or import from URL**.
 
-For the URL, type the Liberty URL that you want to use to import the Swagger document. For this example, you can use **https://<app_name>.mybluemix.net/ibm/api/docs/apiconnect**
+For the URL, type the Liberty URL that you want to use to import the Swagger document. For this example, you can use `https://<app_name>.mybluemix.net/ibm/api/docs/apiconnect`
 
 Click **All APIs** to go back into the main Drafts page, Click **Products**, and then click **Add > New Product**. In the Add a new product window, type in a title (could be anything) and then click **Add**.
 
@@ -115,7 +115,7 @@ To go back into the catalog, click the menu icon , and select **Dashboard**. The
 
 In the new window that opens, you can edit who can view your APIs and who can subscribe to your API Plans. For this example, use the defaults and click **Publish**.
 
-Congratulation. You API is published. Now explore the API Connect Developer Portal like consumers of your API do. Go to **https://<app_name>.mybluemix.net/ibm/api/docs/apiconnect** and click **API Products**.
+Congratulation. You API is published. Now explore the API Connect Developer Portal like consumers of your API do. Go to `https://<app_name>.mybluemix.net/ibm/api/docs/apiconnect` and click **API Products**.
 
 Now you can go to your API and try it out at the API Connect Developer Portal.
 
