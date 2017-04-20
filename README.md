@@ -77,7 +77,7 @@ Click **Portal**, and then under **Portal Configuration**, select **IBM Develope
 Click Save at the top right corner. You see the following message:
 
 `
-Creating the developer portal... Creating the developer portal for catalog "Sandbox" may take a few minutes. You will receive an email with the portal is available.
+Creating the developer portal for catalog 'Sandbox' may take a few minutes. You will receive an email when the portal is available.
 `
 
 After you received the email, go to the **Portal URL** and you will see something like this.
