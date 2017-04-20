@@ -66,13 +66,13 @@ By default, an empty catalog called **Sandbox** is created. To enable its corres
 
 Click **Portal**, and then under **Portal Configuration**, select **IBM Developer Portal**. A Portal URL is automatically inserted.
 
-Take note of the Portal URL, which reveals the target server address and organization that you need later. The URL is broken down into the following three parts, as shown in the following screen capture: 
+<!-- Take note of the Portal URL, which reveals the target server address and organization that you need later. The URL is broken down into the following three parts, as shown in the following screen capture: 
 
 ![portal-url](images/portal-url.png)
 
 - 1 is the catalog's short name, in this case, sb.
 - 2 is your organization ID, in the example, arthurdmcaibmcom-dev.
-- 3 is the target address of your API Connect instance, for example, https://us.apiconnect.ibmcloud.com.
+- 3 is the target address of your API Connect instance, for example, https://us.apiconnect.ibmcloud.com. -->
 
 Click Save at the top right corner. You see the following message:
 ```
