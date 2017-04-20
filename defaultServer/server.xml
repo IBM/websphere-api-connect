@@ -1,0 +1,18 @@
+<server description="new server">
+    <keyStore id="defaultKeyStore" password="SwaggerSample"/>
+    <quickStartSecurity userName="user" userPassword="demo"/>
+
+    <!-- Enable features -->
+    <featureManager>
+    	<feature>apiDiscovery-1.0</feature>
+        <feature>jaxrs-2.0</feature>
+        <feature>jsonp-1.0</feature>
+    </featureManager>
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint httpPort="9081" httpsPort="9444" id="defaultHttpEndpoint"/>
+
+    <applicationMonitor updateTrigger="mbean"/>
+
+    <webApplication id="swagger-sample-application" location="swagger-sample-application.war" name="swagger-sample-application"/>
+</server>
