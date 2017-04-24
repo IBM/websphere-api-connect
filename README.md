@@ -17,7 +17,7 @@ This WebSphere API Connect example is based on this developerWorks [article](htt
 ## Steps
 1. [Push a WebSphere Liberty API Discovery server into Bluemix](#1-push-a-websphere-liberty-api-discovery-server-into-bluemix)
 2. [Create an API Connect service in Bluemix](#2-create-an-api-connect-service-in-bluemix)
-3. [Pull WebSphere Liberty APIs from API Connect](#3-pull-websphere-liberty-apis-from-api-connect)
+3. [Integrate WebSphere Liberty and API Connect: push and pull](#3-integrate-websphere-liberty-and-api-connect:-push-and-pull)
 
 [Troubleshooting](#troubleshooting)
 
@@ -66,13 +66,13 @@ By default, an empty catalog called **Sandbox** is created. To enable its corres
 
 Click **Portal**, and then under **Portal Configuration**, select **IBM Developer Portal**. A Portal URL is automatically inserted.
 
-<!-- Take note of the Portal URL, which reveals the target server address and organization that you need later. The URL is broken down into the following three parts, as shown in the following screen capture: 
+Take note of the Portal URL, which reveals the target server address and organization that you need later. The URL is broken down into the following three parts, as shown in the following screen capture: 
 
 ![portal-url](images/portal-url.png)
 
 - 1 is the catalog's short name, in this case, sb.
 - 2 is your organization ID, in the example, arthurdmcaibmcom-dev.
-- 3 is the target address of your API Connect instance, for example, https://us.apiconnect.ibmcloud.com. -->
+- 3 is the target address of your API Connect instance, for example, https://us.apiconnect.ibmcloud.com. 
 
 Click Save at the top right corner. You see the following message:
 
@@ -86,8 +86,42 @@ After you received the email, go to the **Portal URL** and you will see somethin
 
 This is where enterprise developers go to find the products (for example, an API or a group of APIs) that are exposed in the API catalog. Developers also can interact with each other through the Blogs and Forums links.
 
-# 3. Pull WebSphere Liberty APIs from API Connect
+# 3. Integrate WebSphere Liberty and API Connect: push and pull
+> Choose either [push](#31-push-websphere-liberty-apis-into-api-connect) or [pull](#32-pull-websphere-liberty-apis-from-api-connect) WebSphere Liberty APIs from API Connect.
 
+## 3.1 Push WebSphere Liberty APIs into API Connect
+
+Go to `https://<app_name>.mybluemix.net/ibm/api/explorer/`
+
+Click **POST** for the apiconnect endpoint
+
+![post](images/post.png)
+
+Fill in the parameters as shown in the following screen capture, your organization ID should be the second part of your Portal URL.
+
+![parameter](images/parameter.png)
+
+You want to publish this API product, not just stage it, so leave the stageOnly parameter as false. The X-APIM-Authorization parameter represents the credentials that Liberty uses to log into API Connect. The description on the right side provides details on the accepted format. The following example uses: apimanager/arthurdm@ca.ibm.com:myPassword.
+
+![mypassword](images/mypassword.png)
+
+The best part about using the Swagger user interface in Liberty to push your APIs into API Connect is that you can use a fully working product.json sample JSON file. Click the sample JSON file under Model Schema, and that JSON file is automatically transferred into the body input box, as shown in the following screen capture:
+
+![json](images/json.png)
+
+Now you're ready to publish these APIs. Click **Try it out!**
+
+In less than a minute, you should see the operation return successfully (code 200), with the response content, code and headers displayed, as shown in the following screen capture:
+
+![result](images/result.png)
+
+Congratulation. You API is published. Now explore the API Connect Developer Portal like consumers of your API do. Go to your **Portal URL** and click **API Products**.
+
+Now you can go to your API and try it out at the API Connect Developer Portal.
+
+![api-connect](images/api-connect.png)
+
+## 3.2 Pull WebSphere Liberty APIs from API Connect
 From the main API Connect dashboard in Bluemix, click the menu icon and select **Drafts**. Click **APIs**, click **Add**, and select **Import API from a file or URL**.
 
 ![import](images/import.png)
@@ -116,7 +150,7 @@ To go back into the catalog, click the menu icon , and select **Dashboard**. The
 
 In the new window that opens, you can edit who can view your APIs and who can subscribe to your API Plans. For this example, use the defaults and click **Publish**.
 
-Congratulation. You API is published. Now explore the API Connect Developer Portal like consumers of your API do. Go to `https://<app_name>.mybluemix.net/ibm/api/docs/apiconnect` and click **API Products**.
+Congratulation. You API is published. Now explore the API Connect Developer Portal like consumers of your API do. Go to your **Portal URL** and click **API Products**.
 
 Now you can go to your API and try it out at the API Connect Developer Portal.
 
@@ -132,10 +166,6 @@ Carefully read the window that describes the routes that are about to be deleted
 Now remove the API Connect service. Scroll down to Services, and locate the API Connect service to delete. Click the menu icon and then select **Delete Service**.
 
 A confirmation window opens, describing that all data (APIs, Products, and subscriptions) stored in that API Connect service are to be removed. Click **Delete**.
-
-
-
-
 
 
 # License
