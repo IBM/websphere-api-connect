@@ -17,103 +17,105 @@ This WebSphere API Connect example is based on this developerWorks [article](htt
 ## Steps
 1. [Push a WebSphere Liberty API Discovery server into Bluemix](#1-push-a-websphere-liberty-api-discovery-server-into-bluemix)
 2. [Create an API Connect service in Bluemix](#2-create-an-api-connect-service-in-bluemix)
-3. [Integrate WebSphere Liberty and API Connect: push and pull](#3-integrate-websphere-liberty-and-api-connect:-push-and-pull)
+3. [Integrate WebSphere Liberty and API Connect: push and pull](#3-integrate-websphere-liberty-and-api-connect-push-and-pull)
 
 [Troubleshooting](#troubleshooting)
 
 # 1. Push a WebSphere Liberty API Discovery server into Bluemix
 
-First login to Cloud Foundry
+1. First login to Cloud Foundry
 
-```bash
-cf login -a https://api.ng.bluemix.net
-```
+    ```bash
+    cf login -a https://api.ng.bluemix.net
+    ```
 
-Then you can push your WebSphere Liberty server into the cloud straight from your current local file structure. However, depending on how large your logs and work area directories are, you might want to isolate your files in the following structure: `apps folder` `server.xml file`
+2. Then you can push your WebSphere Liberty server into the cloud straight from your current local file structure. However, depending on how large your logs and work area directories are, you might want to isolate your files in the following structure: `apps folder` `server.xml file`
 
-In the apps folder, place your enterprise archive (EAR) files or web archive (WAR) files. In the server.xml file, make sure that you have all the same configuration used in the on-premises environment, remembering to configure the API Discovery feature to expose your APIs.
+	In the apps folder, place your enterprise archive (EAR) files or web archive (WAR) files. In the server.xml file, make sure that you have all the same configuration used in the on-premises environment, remembering to configure the API Discovery feature to expose your APIs.
 
-For this example, we provided you an example web archive and server.xml file in the **defaultServer** folder.
+	For this example, we provided you an example web archive and server.xml file in the **defaultServer** folder.
 
-Replace `<app_name>` with an unique application name within your Bluemix region. This application name is the name of your API container.
+	Replace `<app_name>` with an unique application name within your Bluemix region. This application name is the name of your API container.
 
-```bash
-cf push <app_name> -p defaultServer
-```
+    ```bash
+    cf push <app_name> -p defaultServer
+    ```
 
-To reach the API Discovery user interface, go to `https://<app_name>.mybluemix.net/ibm/api/explorer`. Then, use the credentials from your server.xml to login(For this example, the **username** is `user` and the **password** is `demo`).
+3. To reach the API Discovery user interface, go to `https://<app_name>.mybluemix.net/ibm/api/explorer`. Then, use the credentials from your server.xml to login(For this example, the **username** is `user` and the **password** is `demo`).
 
-You should see something like this in your API Discovery user interface.
+	You should see something like this in your API Discovery user interface.
 
-![discovery](images/discovery.png)
+	![discovery](images/discovery.png)
 
-As shown in the following screen capture, you can click the **Try it out** button, which starts your application, running on the cloud.
+4. As shown in the following screen capture, you can click the **Try it out** button, which starts your application, running on the cloud.
 
-![try it out](images/try-it-out.png)
+	![try it out](images/try-it-out.png)
 
 # 2. Create an API Connect service in Bluemix
 
-To add API Connect as a Bluemix service, go to the bluemix [API Connect service](https://console.ng.bluemix.net/catalog/services/api-connect?taxonomyNavigation=services)
+1. To add API Connect as a Bluemix service, go to the bluemix [API Connect service](https://console.ng.bluemix.net/catalog/services/api-connect?taxonomyNavigation=services)
 
 
-Then, select the **Essentials plan** and click **Create**.
+2. Then, select the **Essentials plan** and click **Create**.
 
-Go to dashboard by clicking here
+3. Go to dashboard by clicking here
 
-![dashboard](images/dashboard.png)
+	![dashboard](images/dashboard.png)
 
-By default, an empty catalog called **Sandbox** is created. To enable its corresponding developer portal, click **Sandbox** then **Settings**.
+4. By default, an empty catalog called **Sandbox** is created. To enable its corresponding developer portal, click **Sandbox** then **Settings**.
 
-Click **Portal**, and then under **Portal Configuration**, select **IBM Developer Portal**. A Portal URL is automatically inserted.
+5. Click **Portal**, and then under **Portal Configuration**, select **IBM Developer Portal**. A Portal URL is automatically inserted.
 
-Take note of the Portal URL, which reveals the target server address and organization that you need later. The URL is broken down into the following three parts, as shown in the following screen capture: 
+6. Take note of the Portal URL, which reveals the target server address and organization that you need later. The URL is broken down into the following three parts, as shown in the following screen capture: 
 
-![portal-url](images/portal-url.png)
+	![portal-url](images/portal-url.png)
 
-- 1 is the catalog's short name, in this case, sb.
-- 2 is your organization ID, in the example, arthurdmcaibmcom-dev.
-- 3 is the target address of your API Connect instance, for example, https://us.apiconnect.ibmcloud.com. 
+    - 1 is the catalog's short name, in this case, sb.
+    - 2 is your organization ID, in the example, arthurdmcaibmcom-dev.
+    - 3 is the target address of your API Connect instance, for example, https://us.apiconnect.ibmcloud.com. 
 
-Click Save at the top right corner. You see the following message:
+7. Click Save at the top right corner. You see the following message:
 
-`
-Creating the developer portal for catalog 'Sandbox' may take a few minutes. You will receive an email when the portal is available.
-`
+    `
+    Creating the developer portal for catalog 'Sandbox' may take a few minutes. You will receive an email when the portal is available.
+    `
 
-After you received the email, go to the **Portal URL** and you will see something like this.
+8. After you received the email, go to the **Portal URL** and you will see something like this.
 
-![portal](images/portal.png)
+	![portal](images/portal.png)
 
-This is where enterprise developers go to find the products (for example, an API or a group of APIs) that are exposed in the API catalog. Developers also can interact with each other through the Blogs and Forums links.
+	This is where enterprise developers go to find the products (for example, an API or a group of APIs) that are exposed in the API catalog. Developers also can interact with each other through the Blogs and Forums links.
 
 # 3. Integrate WebSphere Liberty and API Connect: push and pull
-> Choose either [push](#31-push-websphere-liberty-apis-into-api-connect) or [pull](#32-pull-websphere-liberty-apis-from-api-connect) WebSphere Liberty APIs from API Connect.
+> Choose either [push](#31-push-websphere-liberty-apis-into-api-connect) or [pull](#32-pull-websphere-liberty-apis-from-api-connect) WebSphere Liberty APIs from API Connect. Also, push won't work on IBMer's account due to federated reasons.
 
 ## 3.1 Push WebSphere Liberty APIs into API Connect
 
-Go to `https://<app_name>.mybluemix.net/ibm/api/explorer/`
+1. Go to `https://<app_name>.mybluemix.net/ibm/api/explorer/`
 
-Click **POST** for the apiconnect endpoint
+2. Click **POST** for the apiconnect endpoint
 
-![post](images/post.png)
+	![post](images/post.png)
 
-Fill in the parameters as shown in the following screen capture, your organization ID should be the second part of your Portal URL.
+3. Fill in the parameters as shown in the following screen capture, your organization ID should be the second part of your Portal URL.
 
-![parameter](images/parameter.png)
+	![parameter](images/parameter.png)
 
-You want to publish this API product, not just stage it, so leave the stageOnly parameter as false. The X-APIM-Authorization parameter represents the credentials that Liberty uses to log into API Connect. The description on the right side provides details on the accepted format. The following example uses: apimanager/arthurdm@ca.ibm.com:myPassword.
+4. You want to publish this API product, not just stage it, so leave the stageOnly parameter as false. The X-APIM-Authorization parameter represents the credentials that Liberty uses to log into API Connect. The description on the right side provides details on the accepted format. The following example uses: apimanager/arthurdm@ca.ibm.com:myPassword.
 
-![mypassword](images/mypassword.png)
+	![mypassword](images/mypassword.png)
 
-The best part about using the Swagger user interface in Liberty to push your APIs into API Connect is that you can use a fully working product.json sample JSON file. Click the sample JSON file under Model Schema, and that JSON file is automatically transferred into the body input box, as shown in the following screen capture:
+5. The best part about using the Swagger user interface in Liberty to push your APIs into API Connect is that you can use a fully working product.json sample JSON file. Click the sample JSON file under Model Schema, and that JSON file is automatically transferred into the body input box, as shown in the following screen capture:
 
-![json](images/json.png)
+	![json](images/json.png)
 
-Now you're ready to publish these APIs. Click **Try it out!**
+6. Now you're ready to publish these APIs. Click **Try it out!**
 
-In less than a minute, you should see the operation return successfully (code 200), with the response content, code and headers displayed, as shown in the following screen capture:
+	![try](images/try.png)
 
-![result](images/result.png)
+7. In less than a minute, you should see the operation return successfully (code 200), with the response content, code and headers displayed, as shown in the following screen capture:
+
+	![result](images/result.png)
 
 Congratulation. You API is published. Now explore the API Connect Developer Portal like consumers of your API do. Go to your **Portal URL** and click **API Products**.
 
@@ -122,33 +124,33 @@ Now you can go to your API and try it out at the API Connect Developer Portal.
 ![api-connect](images/api-connect.png)
 
 ## 3.2 Pull WebSphere Liberty APIs from API Connect
-From the main API Connect dashboard in Bluemix, click the menu icon and select **Drafts**. Click **APIs**, click **Add**, and select **Import API from a file or URL**.
+1. From the main API Connect dashboard in Bluemix, click the menu icon and select **Drafts**. Click **APIs**, click **Add**, and select **Import API from a file or URL**.
 
-![import](images/import.png)
+	![import](images/import.png)
 
-In the **Import API from a file or URL** window, click **Or import from URL**.
+2. In the **Import API from a file or URL** window, click **Or import from URL**.
 
-For the URL, type the Liberty URL that you want to use to import the Swagger document. For this example, you can use `https://<app_name>.mybluemix.net/ibm/api/docs/apiconnect`
+	For the URL, type the Liberty URL that you want to use to import the Swagger document. For this example, you can use `https://<app_name>.mybluemix.net/ibm/api/docs/apiconnect`
 
-Click **All APIs** to go back into the main Drafts page, Click **Products**, and then click **Add > New Product**. In the Add a new product window, type in a title (could be anything) and then click **Add**.
+3. Click **All APIs** to go back into the main Drafts page, Click **Products**, and then click **Add > New Product**. In the Add a new product window, type in a title (could be anything) and then click **Add**.
 
-The design view opens for the Product. Scroll down to the APIs section and click on the + icon. 
+4. The design view opens for the Product. Scroll down to the APIs section and click on the + icon. 
 
-![api](images/api.png)
+	![api](images/api.png)
 
-Select the API you just imported, and click **Apply**.
+5. Select the API you just imported, and click **Apply**.
 
-In the Plans section, you can create different plans with different rate limits, to control which methods from each API are exposed. For this example, please use the default plan.
+6. In the Plans section, you can create different plans with different rate limits, to control which methods from each API are exposed. For this example, please use the default plan.
 
-Click the **save icon** to save your changes.
+	Click the **save icon** to save your changes.
 
-Now you are ready to stage your Product into a catalog. Click the **cloud icon** and select the catalog where you want to stage the APIs.
+7. Now you are ready to stage your Product into a catalog. Click the **cloud icon** and select the catalog where you want to stage the APIs.
 
-To go back into the catalog, click the menu icon , and select **Dashboard**. Then click the menu icon for your staged product and select **Publish**.
+8. To go back into the catalog, click the menu icon , and select **Dashboard**. Then click the menu icon for your staged product and select **Publish**.
 
-![publish](images/publish.png)
+	![publish](images/publish.png)
 
-In the new window that opens, you can edit who can view your APIs and who can subscribe to your API Plans. For this example, use the defaults and click **Publish**.
+9. In the new window that opens, you can edit who can view your APIs and who can subscribe to your API Plans. For this example, use the defaults and click **Publish**.
 
 Congratulation. You API is published. Now explore the API Connect Developer Portal like consumers of your API do. Go to your **Portal URL** and click **API Products**.
 
