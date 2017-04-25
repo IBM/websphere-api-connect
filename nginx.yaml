@@ -31,11 +31,11 @@ spec:
         tier: proxy
     spec:
       containers:
-      - image: registry.ng.bluemix.net/dfplayer/nginx
+      - image: registry.ng.bluemix.net/<namespace>/nginx
         name: nginx
         env:
           - name: SOURCE_IP
-            value: 169.47.237.187
+            value: xxx.xx.xxx.xxx
         ports:
         - containerPort: 443
           name: https
