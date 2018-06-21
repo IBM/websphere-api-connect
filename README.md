@@ -29,11 +29,11 @@ This WebSphere API Connect example is based on this developerWorks [article](htt
     cf login -a https://api.ng.bluemix.net
     ```
 
-2. Then you can push your WebSphere Liberty server into the cloud straight from your current local file structure. However, depending on how large your logs and work area directories are, you might want to isolate your files in the following structure: `apps folder` `server.xml file`
+2. Then you can push your WebSphere Liberty server into the cloud straight from your current local file structure. However, depending on how large your logs and work area directories are, you might want to isolate your files in the following structure: `apps folder` `server.xml` file
 
-	In the apps folder, place your enterprise archive (EAR) files or web archive (WAR) files. In the server.xml file, make sure that you have all the same configuration used in the on-premises environment, remembering to configure the API Discovery feature to expose your APIs.
+	In the apps folder, place your enterprise archive (EAR) files or web archive (WAR) files. In the `server.xml` file, make sure that you have all the same configuration used in the on-premises environment, remembering to configure the API Discovery feature to expose your APIs.
 
-	For this example, we provided you an example web archive and server.xml file in the **defaultServer** folder.
+	For this example, we provided you an example web archive and `server.xml` file in the **defaultServer** folder.
 
 	Replace `<app_name>` with an unique application name within your Bluemix region. This application name is the name of your API container.
 
@@ -41,7 +41,7 @@ This WebSphere API Connect example is based on this developerWorks [article](htt
     cf push <app_name> -p defaultServer
     ```
 
-3. To reach the API Discovery user interface, go to `https://<app_name>.mybluemix.net/ibm/api/explorer`. Then, use the credentials from your server.xml to login(For this example, the **username** is `user` and the **password** is `demo`).
+3. To reach the API Discovery user interface, go to `https://<app_name>.mybluemix.net/ibm/api/explorer`. Then, use the credentials from your `server.xml` to login (For this example, the **username** is `user` and the **password** is `demo`).
 
 	You should see something like this in your API Discovery user interface.
 
@@ -74,7 +74,7 @@ This WebSphere API Connect example is based on this developerWorks [article](htt
     - 2 is your organization ID, in the example, arthurdmcaibmcom-dev.
     - 3 is the target address of your API Connect instance, for example, https://us.apiconnect.ibmcloud.com. 
 
-7. Click Save at the top right corner. You see the following message:
+7. Click **Save** at the top right corner. You see the following message:
 
     `
     Creating the developer portal for catalog 'Sandbox' may take a few minutes. You will receive an email when the portal is available.
@@ -101,11 +101,11 @@ This WebSphere API Connect example is based on this developerWorks [article](htt
 
 	![parameter](images/parameter.png)
 
-4. You want to publish this API product, not just stage it, so leave the stageOnly parameter as false. The X-APIM-Authorization parameter represents the credentials that Liberty uses to log into API Connect. The description on the right side provides details on the accepted format. The following example uses: apimanager/arthurdm@ca.ibm.com:myPassword.
+4. You want to publish this API product, not just stage it, so leave the stageOnly parameter as false. The X-APIM-Authorization parameter represents the credentials that Liberty uses to log into API Connect. The description on the right side provides details on the accepted format. The following example uses: `apimanager/arthurdm@ca.ibm.com:myPassword`.
 
 	![mypassword](images/mypassword.png)
 
-5. The best part about using the Swagger user interface in Liberty to push your APIs into API Connect is that you can use a fully working product.json sample JSON file. Click the sample JSON file under Model Schema, and that JSON file is automatically transferred into the body input box, as shown in the following screen capture:
+5. The best part about using the Swagger user interface in Liberty to push your APIs into API Connect is that you can use a fully working `product.json` sample JSON file. Click the sample JSON file under Model Schema, and that JSON file is automatically transferred into the body input box, as shown in the following screen capture:
 
 	![json](images/json.png)
 
@@ -132,9 +132,9 @@ Now you can go to your API and try it out at the API Connect Developer Portal.
 
 	For the URL, type the Liberty URL that you want to use to import the Swagger document. For this example, you can use `https://<app_name>.mybluemix.net/ibm/api/docs/apiconnect`
 
-3. Click **All APIs** to go back into the main Drafts page, Click **Products**, and then click **Add > New Product**. In the Add a new product window, type in a title (could be anything) and then click **Add**.
+3. Click **All APIs** to go back into the main Drafts page, Click **Products**, and then click **Add > New Product**. In the **Add a new product** window, type in a title (could be anything) and then click **Add**.
 
-4. The design view opens for the Product. Scroll down to the APIs section and click on the + icon. 
+4. The design view opens for the Product. Scroll down to the APIs section and click on the **+** icon. 
 
 	![api](images/api.png)
 
